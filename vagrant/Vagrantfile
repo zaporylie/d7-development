@@ -5,10 +5,10 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/trusty64"
   config.vm.box_url = "https://vagrantcloud.com/ubuntu/boxes/trusty64"
   config.vm.provision :shell, :path => "bootstrap.sh"
-  config.vm.network :forwarded_port, guest: 80, host: 8888
-  config.vm.network :forwarded_port, guest: 3306, host: 3388
-  config.vm.network :forwarded_port, guest: 8080, host: 8088
-  config.vm.network :forwarded_port, guest: 22, host: 2888
+  config.vm.network :forwarded_port, guest: 80, host: 8777
+  config.vm.network :forwarded_port, guest: 3306, host: 3377
+  config.vm.network :forwarded_port, guest: 8080, host: 8077
+  config.vm.network :forwarded_port, guest: 22, host: 2777
 
   config.vm.synced_folder "../drupal/drupal", "/drupal", id: "drupal-folder",
     owner: 'vagrant',
@@ -27,5 +27,5 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.network :private_network, ip: "127.0.0.1"
-  config.vm.hostname = "drupal-8.loc"
+  config.vm.hostname = "drupal-7.loc"
 end

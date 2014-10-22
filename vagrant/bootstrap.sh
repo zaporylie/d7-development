@@ -71,6 +71,8 @@ if [ ! -d "/opt/provisioned" ]; then
   # Add Drush policy.
   ln -s /project/vagrant/policy.drush.inc /home/vagrant/.drush/policy.drush.inc
 
+  # Render and copy ssh key here?
+
   # Make all new files belong to vagrant user.
   chown vagrant /home/vagrant/* -R
 

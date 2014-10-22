@@ -62,11 +62,19 @@ if [ ! -d "/opt/provisioned" ]; then
   sed -i '1i export PATH="$HOME/.composer/vendor/bin:$PATH"' $HOME/.bashrc
   chmod uog+x /usr/local/bin/composer
 
-  # Download drush
+  # Download drush.
   /usr/local/bin/composer global require drush/drush:dev-master
+
+  # Add Drush aliases.
+  ln -s /project/vagrant/default.aliases.drushrc.php /home/vagrant/.drush/default.aliases.drushrc.php
+
+  # Add Drush policy.
+  ln -s /project/vagrant/policy.drush.inc /home/vagrant/.drush/policy.drush.inc
+
+  # Make all new files belong to vagrant user.
   chown vagrant /home/vagrant/* -R
 
-  # Install drupal
+  # Install Drupal.
   cd /drupal
   $HOME/.composer/vendor/bin/drush si --db-url=mysql://drupal:drupal@localhost/drupal --db-su=root --db-su-pw=vagrant -y
 fi

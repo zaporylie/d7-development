@@ -1,10 +1,18 @@
 <?php
-// ~/.drush/policy.drush.inc
 /**
-* Implementation of drush_hook_COMMAND_validate().
-*/
+ * @file
+ * policy.drush.inc
+ *
+ * Probably you should not change anything in this file!!!
+ */
+
+/**
+ * Implementation of drush_hook_COMMAND_validate().
+ */
 function drush_policy_sql_sync_validate($source = NULL, $destination = NULL) {
-  // if($destination == '@live' || $destination == '@staging') {
-  //   return drush_set_error(dt('Per ./.drush/policy.drush.inc, you almost overwrote the production database you moron!'));
-  // }
+  dt(var_dump(drush_get_option('structure-tables')));
+  $env_flow = drush_get_option('env-flow');
+  if (isset($env_flow[$source]) && !in_array($destination, $env_flow[$source])) {
+    return drush_set_error(dt('Unable to synchronize databases from !source to !destination. Permission denied!', array('!source' => $source, '!destination' => $destination)));
+  }
 }

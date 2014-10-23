@@ -1,5 +1,6 @@
 .DS_Store
 vagrant/.vagrant
+vagrant/default.aliases.drushrc.php
 drupal/drupal
 drupal/patches/*
 !drupal/patches/README.md

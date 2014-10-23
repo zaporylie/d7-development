@@ -63,7 +63,7 @@ if [ ! -d "/opt/provisioned" ]; then
   chmod uog+x /usr/local/bin/composer
 
   # Download drush.
-  /usr/local/bin/composer global require drush/drush:dev-master
+  /usr/local/bin/composer global require drush/drush:6.*
 
   # Add Drush aliases.
   ln -s /project/vagrant/default.aliases.drushrc.php /home/vagrant/.drush/default.aliases.drushrc.php
@@ -71,12 +71,20 @@ if [ ! -d "/opt/provisioned" ]; then
   # Add Drush policy.
   ln -s /project/vagrant/policy.drush.inc /home/vagrant/.drush/policy.drush.inc
 
-  # Render and copy ssh key here?
+  # Add Drush options.
+  ln -s /vagrant/drushrc.php /home/vagrant/.drush/drushrc.php
+
+  # Add enable/disable options to aliases.
+  ln -s /home/vagrant/.composer/vendor/drush/drush/examples/sync_enable.drush.inc /home/vagrant/.drush/sync_enable.drush.inc
 
   # Make all new files belong to vagrant user.
   chown vagrant /home/vagrant/* -R
 
+  # Render and copy ssh key here?
+  su vagrant
+  ssh-keygen
+
   # Install Drupal.
   cd /drupal
-  $HOME/.composer/vendor/bin/drush si --db-url=mysql://drupal:drupal@localhost/drupal --db-su=root --db-su-pw=vagrant -y
+  drush si --db-url=mysql://drupal:drupal@localhost/drupal --db-su=root --db-su-pw=vagrant -y
 fi

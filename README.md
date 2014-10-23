@@ -1,4 +1,4 @@
-Drupal 8 development
+Drupal 7 development
 ===============
 
 Use this repo to create your own Drupal Development Environmet.
@@ -11,14 +11,23 @@ Use this repo to create your own Drupal Development Environmet.
 # Next steps:
 
 - login to vagrant with 'vagrant ssh'
+- clone your ssh key with ssh-copy-id command
 - go to /drupal to work on drupal folder
-- use 'drush <command>'
-- your site is available under localhost:8888 
+- use 'drush @alias <command>'
+- your site is available under localhost:7777
 - enjoy!
+
+# Aliases
+
+You can configure your aliases in vagrant/default.aliases.drushrc.php
+- @local - this is alias to drupal hosted by your vagrant
+- @dev - this is dev environment
+- @staging - staging environment
+- @live - live/production environmet
 
 # Data
 
-- ssh port - 2888
+- ssh port - 2777
 - drupal database - drupal:drupal@localhost/drupal
 
 # PhpStorm

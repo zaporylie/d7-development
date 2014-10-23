@@ -1,6 +1,7 @@
 .DS_Store
 vagrant/.vagrant
-vagrant/default.aliases.drushrc.php
+vagrant/drush/*
+!vagrant/drush/default.*
 drupal/drupal
 drupal/patches/*
 !drupal/patches/README.md

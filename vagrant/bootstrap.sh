@@ -75,13 +75,13 @@ if [ ! -d "/opt/provisioned" ]; then
   /home/vagrant/.composer/vendor/drush/drush/drush si --db-url=mysql://drupal:drupal@localhost/drupal --db-su=root --db-su-pw=vagrant -y
 
   # Add Drush aliases.
-  ln -s /vagrant/default.aliases.drushrc.php /home/vagrant/.drush/default.aliases.drushrc.php
+  ln -s /vagrant/drush/vagrant.aliases.drushrc.php /home/vagrant/.drush/vagrant.aliases.drushrc.php
 
   # Add Drush policy.
-  ln -s /vagrant/policy.drush.inc /home/vagrant/.drush/policy.drush.inc
+  ln -s /vagrant/drush/policy.drush.inc /home/vagrant/.drush/policy.drush.inc
 
   # Add Drush options.
-  ln -s /vagrant/drushrc.php /home/vagrant/.drush/drushrc.php
+  ln -s /vagrant/drush/drushrc.php /home/vagrant/.drush/drushrc.php
 
   # Add enable/disable options to aliases.
   ln -s /home/vagrant/.composer/vendor/drush/drush/examples/sync_enable.drush.inc /home/vagrant/.drush/sync_enable.drush.inc

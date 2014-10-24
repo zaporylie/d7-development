@@ -84,9 +84,12 @@ if [ ! -d "/opt/provisioned" ]; then
   # Add enable/disable options to aliases.
   ln -s /home/vagrant/.composer/vendor/drush/drush/examples/sync_enable.drush.inc /home/vagrant/.drush/sync_enable.drush.inc
 
+  # Add variables_sync module.
+  ln -s /vagrant/drush/sync_variables.drush.inc /home/vagrant/.drush/sync_variables.drush.inc
+
+  # Add helper module.
+  ln -s /vagrant/drush/pre_post_sync.drush.inc /home/vagrant/.drush/pre_post_sync.drush.inc
+
   # Make all new files belong to vagrant user.
   chown vagrant:vagrant /home/vagrant -R
-
-  # Create ssh key pair.
-  su - vagrant -c "ssh-keygen"
 fi

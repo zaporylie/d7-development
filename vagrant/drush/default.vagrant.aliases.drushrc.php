@@ -50,24 +50,24 @@ $aliases['local'] = array(
 
 $aliases['dev'] = array(
   'parent' => '@main, @local',
-  // 'root' => '',
-  // 'remote-user' => '',
-  // 'remote-host' => '',
-  // 'ssh-options' => '',
+  // 'root' => '', // i.e. /var/www/example.com
+  // 'remote-user' => '', // i.e. knut
+  // 'remote-host' => '', // i.e. dev.example.com
+  // 'ssh-options' => '', // i.e. -p 23
 );
 
 $aliases['staging'] = array(
   'parent' => '@main',
-  // 'root' => '',
-  // 'remote-user' => '',
-  // 'remote-host' => '',
-  // 'ssh-options' => '',
+  // 'root' => '', // i.e. /var/www/example.com
+  // 'remote-user' => '', // i.e. knut
+  // 'remote-host' => '', // i.e. dev.example.com
+  // 'ssh-options' => '', // i.e. -p 23
 );
 
 $aliases['prod'] = array(
   'parent' => '@main',
-  // 'root' => '',
-  // 'remote-user' => '',
-  // 'remote-host' => '',
-  // 'ssh-options' => '',
+  // 'root' => '', // i.e. /var/www/example.com
+  // 'remote-user' => '', // i.e. knut
+  // 'remote-host' => '', // i.e. dev.example.com
+  // 'ssh-options' => '', // i.e. -p 23
 );

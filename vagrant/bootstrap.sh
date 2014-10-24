@@ -65,10 +65,6 @@ if [ ! -d "/opt/provisioned" ]; then
   # Download drush.
   /usr/local/bin/composer global require drush/drush:6.*
 
-  # Install Drupal.
-  cd /drupal
-  /home/vagrant/.composer/vendor/drush/drush/drush si --db-url=mysql://drupal:drupal@localhost/drupal --db-su=root --db-su-pw=vagrant -y
-
   # Add Drush aliases.
   cp -u -p /vagrant/drush/default.vagrant.aliases.drushrc.php /vagrant/drush/vagrant.aliases.drushrc.php
   ln -s /vagrant/drush/vagrant.aliases.drushrc.php /home/vagrant/.drush/vagrant.aliases.drushrc.php
@@ -89,6 +85,10 @@ if [ ! -d "/opt/provisioned" ]; then
 
   # Add helper module.
   ln -s /vagrant/drush/pre_post_sync.drush.inc /home/vagrant/.drush/pre_post_sync.drush.inc
+
+  # Install Drupal.
+  cd /drupal
+  /home/vagrant/.composer/vendor/drush/drush/drush si --db-url=mysql://drupal:drupal@localhost/drupal --db-su=root --db-su-pw=vagrant -y
 
   # Make all new files belong to vagrant user.
   chown vagrant:vagrant /home/vagrant -R

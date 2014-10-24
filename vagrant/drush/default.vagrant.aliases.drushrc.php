@@ -2,9 +2,27 @@
 
 $aliases['main'] = array(
   'target-command-specific' => array (
-    'sql-sync' => array (
-      'sanitize' => TRUE,
+    'sql-sync' => array(
       'no-cache' => TRUE,
+      'confirm-sanitizations' => TRUE,
+      'no-ordered-dump' => TRUE,
+      'sanitize' => TRUE,
+    ),
+  ),
+  'source-command-specific' => array(
+    'sql-sync' => array(
+      // Add default options for sql-sync source here.
+    ),
+  ),
+  'command-specific' => array(
+    'sql-sync' => array(
+      'structure-tables' => array(
+        'common' => array(
+          'cache*',
+          'sessions',
+          'watchdog',
+        ),
+      ),
     ),
   ),
   'path-aliases' => array(
@@ -17,14 +35,6 @@ $aliases['local'] = array(
   'parent' => '@main',
   'root' => '/drupal',
   'uri' => 'localhost',
-);
-
-$aliases['dev'] = array(
-  'parent' => '@main',
-  // 'root' => '',
-  // 'remote-user' => '',
-  // 'remote-host' => '',
-  // 'ssh-options' => '',
   'target-command-specific' => array (
     'sql-sync' => array (
       'enable' => array(
@@ -34,6 +44,14 @@ $aliases['dev'] = array(
       ),
     ),
   ),
+);
+
+$aliases['dev'] = array(
+  'parent' => '@main, @local',
+  // 'root' => '',
+  // 'remote-user' => '',
+  // 'remote-host' => '',
+  // 'ssh-options' => '',
 );
 
 $aliases['staging'] = array(

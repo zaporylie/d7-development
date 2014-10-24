@@ -6,8 +6,8 @@
  * - sql-sync
  */
 $options['env-flow'] = array(
-  'live' => array('staging', 'dev', 'local'),
-  'staging' => array('dev', 'local'),
-  'dev' => array('local'),
-  'local' => array(),
+  'prod' => array(),
+  'staging' => array('local'),
+  'dev' => array('staging', 'local'),
+  'local' => array('prod', 'staging', 'dev'),
 );

@@ -50,6 +50,7 @@ $aliases['local'] = array(
 
 $aliases['dev'] = array(
   'parent' => '@main, @local',
+  // 'uri' => '', // i.e. www.example.com
   // 'root' => '', // i.e. /var/www/example.com
   // 'remote-user' => '', // i.e. knut
   // 'remote-host' => '', // i.e. dev.example.com
@@ -58,6 +59,7 @@ $aliases['dev'] = array(
 
 $aliases['staging'] = array(
   'parent' => '@main',
+  // 'uri' => '', // i.e. www.example.com
   // 'root' => '', // i.e. /var/www/example.com
   // 'remote-user' => '', // i.e. knut
   // 'remote-host' => '', // i.e. dev.example.com
@@ -66,6 +68,7 @@ $aliases['staging'] = array(
 
 $aliases['prod'] = array(
   'parent' => '@main',
+  // 'uri' => '', // i.e. www.example.com
   // 'root' => '', // i.e. /var/www/example.com
   // 'remote-user' => '', // i.e. knut
   // 'remote-host' => '', // i.e. dev.example.com

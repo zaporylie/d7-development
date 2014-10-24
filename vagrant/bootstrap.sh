@@ -63,29 +63,30 @@ if [ ! -d "/opt/provisioned" ]; then
   chmod uog+x /usr/local/bin/composer
 
   # Download drush.
-  /usr/local/bin/composer global require drush/drush:dev-master
-
-
-  # Render and copy ssh key here?
-  #su vagrant
-  #ssh-keygen
+  /usr/local/bin/composer global require drush/drush:6.*
 
   # Install Drupal.
   cd /drupal
   /home/vagrant/.composer/vendor/drush/drush/drush si --db-url=mysql://drupal:drupal@localhost/drupal --db-su=root --db-su-pw=vagrant -y
 
   # Add Drush aliases.
+  cp -u -p /vagrant/drush/default.vagrant.aliases.drushrc.php /vagrant/drush/vagrant.aliases.drushrc.php
   ln -s /vagrant/drush/vagrant.aliases.drushrc.php /home/vagrant/.drush/vagrant.aliases.drushrc.php
 
   # Add Drush policy.
+  cp -u -p /vagrant/drush/default.policy.drush.inc /vagrant/drush/policy.drush.inc
   ln -s /vagrant/drush/policy.drush.inc /home/vagrant/.drush/policy.drush.inc
 
   # Add Drush options.
+  cp -u -p /vagrant/drush/default.drushrc.php /vagrant/drush/drushrc.php
   ln -s /vagrant/drush/drushrc.php /home/vagrant/.drush/drushrc.php
 
   # Add enable/disable options to aliases.
   ln -s /home/vagrant/.composer/vendor/drush/drush/examples/sync_enable.drush.inc /home/vagrant/.drush/sync_enable.drush.inc
 
   # Make all new files belong to vagrant user.
-  chown vagrant /home/vagrant -R
+  chown vagrant:vagrant /home/vagrant -R
+
+  # Create ssh key pair.
+  su - vagrant -c "ssh-keygen"
 fi

@@ -10,11 +10,12 @@ Use this repo to create your own Drupal Development Environmet.
 
 # Next steps:
 
+- customize files in /vagrant/drush (skip these with *default* as a prefix)
 - login to vagrant with 'vagrant ssh'
+- create ssh key pair with ssh-keygen
 - clone your ssh key with ssh-copy-id command
-- go to /drupal to work on drupal folder
 - use 'drush @alias <command>'
-- your site is available under localhost:7777
+- your site is available under localhost:8777
 - enjoy!
 
 # Aliases

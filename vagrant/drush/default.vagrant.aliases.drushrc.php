@@ -3,19 +3,17 @@
 $aliases['main'] = array(
   'target-command-specific' => array (
     'sql-sync' => array(
-      'no-cache' => TRUE,
-      'confirm-sanitizations' => TRUE,
-      'no-ordered-dump' => TRUE,
-      'sanitize' => TRUE,
+      // Add general options for sql-sync target here.
     ),
   ),
   'source-command-specific' => array(
     'sql-sync' => array(
-      // Add default options for sql-sync source here.
+      // Add general options for sql-sync source here.
     ),
   ),
   'command-specific' => array(
     'sql-sync' => array(
+      'confirm-sanitizations' => TRUE,
       'structure-tables' => array(
         'common' => array(
           'cache*',
@@ -28,7 +26,7 @@ $aliases['main'] = array(
   'path-aliases' => array(
     '%dump-dir' => '/tmp',
     '%files' => 'sites/default/files',
-   ),
+  ),
 );
 
 $aliases['local'] = array(
@@ -42,6 +40,10 @@ $aliases['local'] = array(
         'coffee',
         'stage_file_proxy',
       ),
+      'no-cache' => TRUE,
+      'sanitize' => TRUE,
+      'no-ordered-dump' => TRUE,
+      'structure-tables-key' => 'common',
     ),
   ),
 );
